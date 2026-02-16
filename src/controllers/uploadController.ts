@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 
 // simple ingredient recognition based on image analysis
-// In production, this would use a ML service like Google Vision API or TensorFlow.js
 export const recognizeIngredients = async (req: Request, res: Response) => {
   try {
     if (!req.file && !req.body.image) {
@@ -11,11 +10,6 @@ export const recognizeIngredients = async (req: Request, res: Response) => {
       });
     }
 
-    // For demo purposes, we'll simulate ingredient recognition
-    // In real implementation, you would:
-    // 1. Send image to ML service (Google Vision, AWS Rekognition, etc.)
-    // 2. Process the results
-    // 3. Map detected objects to ingredients
 
     // Simulated ingredient database with common visual characteristics
     const ingredientDatabase: { [key: string]: string[] } = {
@@ -34,8 +28,7 @@ export const recognizeIngredients = async (req: Request, res: Response) => {
     // Simulate processing delay
     await new Promise(resolve => setTimeout(resolve, 1500));
 
-    // Generate random detected ingredients (for demo)
-    // In real app, this would come from ML model
+    // Generate random detected ingredients
     const detectedIngredients = [
       'tomato',
       'onion',
